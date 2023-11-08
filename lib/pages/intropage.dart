@@ -13,7 +13,7 @@ class Intropage extends StatelessWidget {
           children: [
             Icon(
               Icons.shopping_bag,
-              size: 50,
+              size: 80,
               color: Theme.of(context).colorScheme.inversePrimary,
             ),
             const SizedBox(height: 25),
