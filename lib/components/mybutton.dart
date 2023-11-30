@@ -1,0 +1,17 @@
+import 'package:flutter/material.dart';
+
+class Mycustombutton extends StatelessWidget {
+  final void Function()? onTap;
+  final Widget child;
+  const Mycustombutton({super.key, required this.onTap, required this.child});
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        child: child,
+      ),
+    );
+  }
+}
