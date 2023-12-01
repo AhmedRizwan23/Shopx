@@ -1,5 +1,7 @@
 import 'package:ecommerce_app/components/mybutton.dart';
+import 'package:ecommerce_app/pages/shop_page.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class Intropage extends StatelessWidget {
   const Intropage({super.key});
@@ -18,7 +20,7 @@ class Intropage extends StatelessWidget {
           const SizedBox(height: 25),
           const Text(
             "Minimal Shop",
-            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 34),
           ),
           const SizedBox(
             height: 10,
@@ -27,7 +29,15 @@ class Intropage extends StatelessWidget {
             "Premium Quality Products",
             style: TextStyle(color: Colors.grey.shade900),
           ),
-          Mycustombutton(onTap: () {}, child: const Icon(Icons.arrow_forward))
+          const SizedBox(height: 30),
+          Mycustombutton(
+              onTap: () {
+                Get.to(const ShopPage());
+              },
+              child: const Icon(
+                Icons.arrow_forward,
+                size: 35,
+              ))
         ]),
       ),
     );
