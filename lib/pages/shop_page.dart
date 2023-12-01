@@ -20,19 +20,34 @@ class ShopPage extends StatelessWidget {
         centerTitle: true,
       ),
       drawer: const MyDrawer(),
-      body: Obx(
-        () => SizedBox(
-          height: 600,
-          child: ListView.builder(
-            scrollDirection: Axis.horizontal,
-            itemCount: getshopcontroller.shop.length,
-            itemBuilder: (BuildContext context, int index) {
-              Products prod = getshopcontroller.shop[index];
+      body: Column(
+        children: [
+          Obx(
+            () => SizedBox(
+              height: 700,
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: getshopcontroller.shop.length,
+                itemBuilder: (BuildContext context, int index) {
+                  Products prod = getshopcontroller.shop[index];
 
-              return Myproducttile(product: prod);
-            },
+                  return Myproducttile(product: prod);
+                },
+              ),
+            ),
           ),
-        ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                "minimal X shop",
+                style: TextStyle(
+                    fontSize: 20,
+                    color: Theme.of(context).colorScheme.inversePrimary),
+              )
+            ],
+          )
+        ],
       ),
     );
   }

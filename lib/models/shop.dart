@@ -7,26 +7,26 @@ class Shop extends GetxController {
     Products(
       name: "Product 1",
       price: 20.5,
-      description: "Item description",
+      description: "Item description1.....",
     ),
     Products(
       name: "Product 2",
       price: 203.5,
-      description: "Item description",
+      description: "Item description2....",
     ),
     Products(
       name: "Product 3",
       price: 2220.5,
-      description: "Item description",
+      description: "Item description3...",
     ),
     Products(
       name: "Product 4",
       price: 10.5,
-      description: "Item description",
+      description: "Item description4........",
     ),
   ].obs;
   //user cart
-  final RxList cart = [].obs;
+  final List<Products> cart = [];
 
   //add item to cart
   void addToCart(Products item) {

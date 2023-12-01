@@ -1,6 +1,4 @@
-import 'package:get/get.dart';
-
-class Products extends GetxController {
+class Products {
   String name;
   double price;
   String description;

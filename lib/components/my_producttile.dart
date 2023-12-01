@@ -6,10 +6,50 @@ import 'package:get/get.dart';
 class Myproducttile extends StatelessWidget {
   Products product;
   Myproducttile({super.key, required this.product});
+  void confirmOrder(BuildContext context) {
+    Get.bottomSheet(Container(
+      height: MediaQuery.of(context).size.height * .3,
+      width: MediaQuery.of(context).size.width * 1,
+      decoration: BoxDecoration(
+        borderRadius: const BorderRadius.only(
+            topLeft: Radius.circular(30), topRight: Radius.circular(30)),
+        color: Theme.of(context).colorScheme.secondary,
+      ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          const Padding(
+            padding: EdgeInsets.all(30),
+            child: Text("Add this item to your cart?"),
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              MaterialButton(
+                onPressed: () {
+                  Get.back();
+                },
+                child: const Text("Cancel"),
+              ),
+              MaterialButton(
+                onPressed: () {
+                  getcontroller.addToCart(product);
+                  Get.back();
+                  print(getcontroller.cart);
+                },
+                child: const Text("Yes"),
+              ),
+            ],
+          )
+        ],
+      ),
+    ));
+  }
+
+  Shop getcontroller = Get.find();
 
   @override
   Widget build(BuildContext context) {
-    Shop getcontroller = Get.find();
     return Container(
       width: MediaQuery.of(context).size.width * .8,
       decoration: BoxDecoration(
@@ -42,7 +82,7 @@ class Myproducttile extends StatelessWidget {
               Text(
                 product.name,
                 style:
-                    const TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                    const TextStyle(fontWeight: FontWeight.bold, fontSize: 30),
               ),
               Text(
                 product.description,
@@ -54,15 +94,17 @@ class Myproducttile extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(product.price.toString()),
+              Text(
+                "\$ ${product.price.toString()}",
+                style: const TextStyle(fontSize: 20),
+              ),
               Container(
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(19),
                       color: Theme.of(context).colorScheme.secondary),
                   child: IconButton(
                       onPressed: () {
-                        getcontroller.addToCart(product);
-                        print(getcontroller.cart);
+                        confirmOrder(context);
                       },
                       icon: const Icon(Icons.add)))
             ],
@@ -71,4 +113,12 @@ class Myproducttile extends StatelessWidget {
       ),
     );
   }
+
+  //void confirmOrder() {}
+
+//   void confirmOrder() {}
+// }
+
+// void confirmOrder() {
+// }
 }
