@@ -26,17 +26,17 @@ class Shop extends GetxController {
     ),
   ].obs;
   //user cart
-  final RxList _cart = [].obs;
+  final RxList cart = [].obs;
 
   //add item to cart
   void addToCart(Products item) {
-    _cart.add(item);
+    cart.add(item);
     update();
   }
 
 //remove item fro cart
   void removeFromCart(Products item) {
-    _cart.remove(item);
+    cart.remove(item);
     update();
   }
 }

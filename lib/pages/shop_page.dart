@@ -22,7 +22,7 @@ class ShopPage extends StatelessWidget {
       drawer: const MyDrawer(),
       body: Obx(
         () => SizedBox(
-          height: 500,
+          height: 600,
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
             itemCount: getshopcontroller.shop.length,
