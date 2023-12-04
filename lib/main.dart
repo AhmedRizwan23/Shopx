@@ -1,5 +1,5 @@
 import 'package:ecommerce_app/pages/intropage.dart';
-import 'package:ecommerce_app/themes/lightmode.dart';
+import 'package:ecommerce_app/themes/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -15,6 +15,7 @@ class Myapp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       theme: lightmode,
+      darkTheme: darkmode,
       home: const Intropage(),
     );
   }

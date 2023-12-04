@@ -19,7 +19,7 @@ class ShopPage extends StatelessWidget {
         title: const Text('Shop Page'),
         centerTitle: true,
       ),
-      drawer: const MyDrawer(),
+      drawer: MyDrawer(),
       body: Column(
         children: [
           Obx(

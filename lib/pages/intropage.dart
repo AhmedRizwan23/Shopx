@@ -9,13 +9,13 @@ class Intropage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Theme.of(context).colorScheme.background,
+      backgroundColor: Colors.grey[200],
       body: Center(
         child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-          Icon(
-            Icons.shopping_bag,
-            size: 80,
-            color: Theme.of(context).colorScheme.inversePrimary,
+          Image(
+            image: const AssetImage("lib/assets/applelogo.png"),
+            height: MediaQuery.of(context).size.height * .5,
+            width: MediaQuery.of(context).size.width * .5,
           ),
           const SizedBox(height: 25),
           const Text(
