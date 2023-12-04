@@ -33,6 +33,7 @@ class MyDrawer extends StatelessWidget {
                   onTap: () {
                     Get.to(const Cartpage());
                   }),
+              Mykist
             ],
           ),
           Padding(

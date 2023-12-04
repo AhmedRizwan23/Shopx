@@ -68,13 +68,16 @@ class Myproducttile extends StatelessWidget {
               AspectRatio(
                 aspectRatio: 1,
                 child: Container(
-                    width: MediaQuery.of(context).size.width,
-                    // height: MediaQuery.of(context).size.height * .1,
+                    //   width: MediaQuery.of(context).size.width,
+                    //  height: MediaQuery.of(context).size.height * 1,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(30),
                       color: Theme.of(context).colorScheme.secondary,
                     ),
-                    child: const Icon(Icons.favorite)),
+                    child: Image.asset(
+                      product.imagepath,
+                      fit: BoxFit.cover,
+                    )),
               ),
               const SizedBox(
                 height: 20,
