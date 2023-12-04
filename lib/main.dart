@@ -1,4 +1,5 @@
 import 'package:ecommerce_app/pages/intropage.dart';
+import 'package:ecommerce_app/pages/shop_page.dart';
 import 'package:ecommerce_app/themes/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -17,6 +18,11 @@ class Myapp extends StatelessWidget {
       theme: lightmode,
       darkTheme: darkmode,
       home: const Intropage(),
+      getPages: [
+        GetPage(name: '/', page: () => const Intropage()),
+        GetPage(name: '/shoppage', page: () => const ShopPage()),
+        // Add more routes as needed
+      ],
     );
   }
 }

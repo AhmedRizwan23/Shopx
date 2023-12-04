@@ -41,16 +41,12 @@ class _IntropageState extends State<Intropage> {
     return Scaffold(
       backgroundColor: Colors.grey[100],
       body: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-        Padding(
-          padding: const EdgeInsets.all(10),
-          child: Container(
-              decoration:
-                  BoxDecoration(borderRadius: BorderRadius.circular(25)),
-              height: MediaQuery.of(context).size.height * .4,
-              width: MediaQuery.of(context).size.width,
-              //   color: Colors.grey.shade700,
-              child: Chewie(controller: chewieController)),
-        ),
+        Container(
+            decoration: BoxDecoration(borderRadius: BorderRadius.circular(25)),
+            height: MediaQuery.of(context).size.height * .4,
+            width: MediaQuery.of(context).size.width,
+            //   color: Colors.grey.shade700,
+            child: Chewie(controller: chewieController)),
         // Image(
         //   image: const AssetImage("lib/assets/applelogo.png"),
         //   height: MediaQuery.of(context).size.height * .5,
@@ -75,7 +71,7 @@ class _IntropageState extends State<Intropage> {
               onTap: () {
                 videoPlayerController.dispose();
                 chewieController.dispose();
-                Get.to(const ShopPage());
+                Get.offAllNamed("/shoppage");
               },
               child: const Icon(
                 Icons.arrow_forward,
