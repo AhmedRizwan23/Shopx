@@ -30,6 +30,12 @@ class _MyDrawerState extends State<MyDrawer> {
                 color: Theme.of(context).colorScheme.inversePrimary,
               )),
               MylistTile(
+                  icon: Icons.featured_play_list,
+                  text: "Feautred Products",
+                  onTap: () {
+                    Get.toNamed("/featuredpage");
+                  }),
+              MylistTile(
                   icon: Icons.home,
                   text: "Shop",
                   onTap: () {

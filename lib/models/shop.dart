@@ -5,6 +5,12 @@ class Shop extends GetxController {
   // Shop products
   final RxList<Products> shop = [
     Products(
+        name: "iphone 15 pro",
+        price: 800,
+        description:
+            "Apple's latest flagship smartphone, combining cutting-edge technology with sleek design. Featuring a stunning Super Retina XDR display, the device offers vibrant colors and sharp clarity. The advanced A16 Bionic chip powers seamless performance, supporting innovative features and lightning-fast processing. Capture breathtaking moments with the enhanced camera system.",
+        imagepath: "lib/assets/iphone15.jpg"),
+    Products(
       name: "iphone SE ",
       price: 350,
       description:

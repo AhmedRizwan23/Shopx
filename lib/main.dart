@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/pages/feautred_productpage.dart';
 import 'package:ecommerce_app/pages/intropage.dart';
 import 'package:ecommerce_app/pages/shop_page.dart';
 import 'package:ecommerce_app/themes/theme.dart';
@@ -21,6 +22,8 @@ class Myapp extends StatelessWidget {
       getPages: [
         GetPage(name: '/', page: () => const Intropage()),
         GetPage(name: '/shoppage', page: () => const ShopPage()),
+        GetPage(name: '/featuredpage', page: () => const Feautredpage()),
+
         // Add more routes as needed
       ],
     );

@@ -4,9 +4,13 @@ import 'package:ecommerce_app/models/products.dart';
 import 'package:ecommerce_app/models/shop.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:liquid_pull_to_refresh/liquid_pull_to_refresh.dart';
 
 class ShopPage extends StatelessWidget {
   const ShopPage({super.key});
+  Future refresh() async {
+    print("refresh");
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -25,14 +29,18 @@ class ShopPage extends StatelessWidget {
           Obx(
             () => SizedBox(
               height: 700,
-              child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                itemCount: getshopcontroller.shop.length,
-                itemBuilder: (BuildContext context, int index) {
-                  Products prod = getshopcontroller.shop[index];
+              child: LiquidPullToRefresh(
+                showChildOpacityTransition: false,
+                onRefresh: refresh,
+                child: ListView.builder(
+                  //  scrollDirection: Axis.horizontal,
+                  itemCount: getshopcontroller.shop.length,
+                  itemBuilder: (BuildContext context, int index) {
+                    Products prod = getshopcontroller.shop[index];
 
-                  return Myproducttile(product: prod);
-                },
+                    return Myproducttile(product: prod);
+                  },
+                ),
               ),
             ),
           ),

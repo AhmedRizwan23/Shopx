@@ -28,7 +28,7 @@ class _IntropageState extends State<Intropage> {
         allowMuting: true,
         //   controlsSafeAreaMinimum: const EdgeInsets.symmetric(vertical: 20),
         showControls: false,
-        aspectRatio: 18 / 16);
+        aspectRatio: 21 / 10);
   }
 
   @override
