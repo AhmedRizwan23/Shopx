@@ -1,5 +1,6 @@
 import 'package:ecommerce_app/models/products.dart';
 import 'package:ecommerce_app/models/shop.dart';
+import 'package:ecommerce_app/pages/detailpage.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -36,6 +37,9 @@ class Myproducttile extends StatelessWidget {
                   getcontroller.addToCart(product);
                   Get.back();
                   print(getcontroller.cart);
+                  Get.snackbar("Product added to cart", product.name,
+                      snackPosition: SnackPosition.BOTTOM,
+                      backgroundColor: Theme.of(context).colorScheme.primary);
                 },
                 child: const Text("Yes"),
               ),
