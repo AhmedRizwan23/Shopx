@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 
 class Shop extends GetxController {
   // Shop products
-  final RxList<Products> shop = [
+  final RxList<Products> shop = <Products>[
     Products(
         name: "iphone 15 pro",
         price: 800,
@@ -40,7 +40,7 @@ class Shop extends GetxController {
     ),
   ].obs;
   //user cart
-  final List<Products> cart = [];
+  final RxList<Products> cart = <Products>[].obs;
 
   //add item to cart
   void addToCart(Products item) {

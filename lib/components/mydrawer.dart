@@ -45,7 +45,7 @@ class _MyDrawerState extends State<MyDrawer> {
                   icon: Icons.shopping_cart,
                   text: "Cart",
                   onTap: () {
-                    Get.to(const Cartpage());
+                    Get.to(Cartpage());
                   }),
               MylistTile(
                 icon: Icons.brightness_5,

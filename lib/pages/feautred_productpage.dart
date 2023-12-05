@@ -56,14 +56,14 @@ class _IntropageState extends State<Feautredpage> {
                   // color: Colors.grey.shade700,
                   child: Chewie(controller: chewieController)),
               const Padding(
-                padding: EdgeInsets.all(8.0),
+                padding: EdgeInsets.all(15.0),
                 child: Text(
                   "iphone 15 pro",
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 34),
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 40),
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(10.0),
                 child: Text(
                   " Apple's latest flagship smartphone, combining cutting-edge technology with sleek design. Featuring a stunning Super Retina XDR display, the device offers vibrant colors and sharp clarity. The advanced A16 Bionic chip powers seamless performance, supporting innovative features and lightning-fast processing. Capture breathtaking moments with the enhanced camera system, equipped with AI-driven capabilities for stunning photos and videos",
                   style: TextStyle(color: Colors.grey.shade900),
@@ -86,9 +86,12 @@ class _IntropageState extends State<Feautredpage> {
                     getcontroller.addToCart(products);
                     Get.snackbar("Added to cart", products.name);
                   },
-                  child: const Row(
+                  child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [Text("Add to cart"), Icon(Icons.add)],
+                    children: [
+                      const Text("Add to cart"),
+                      Text("\$${getcontroller.shop[0].price.toString()}")
+                    ],
                   ),
                 ),
               )

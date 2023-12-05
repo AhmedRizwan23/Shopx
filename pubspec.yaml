@@ -13,6 +13,7 @@ dependencies:
   chewie: 
   video_player: 
   liquid_pull_to_refresh: ^3.0.1
+  lottie:
 
 dev_dependencies:
   flutter_test:
