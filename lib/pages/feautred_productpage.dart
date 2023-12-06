@@ -1,7 +1,7 @@
 import 'package:chewie/chewie.dart';
 import 'package:ecommerce_app/components/mybutton.dart';
 import 'package:ecommerce_app/models/products.dart';
-import 'package:ecommerce_app/models/shop.dart';
+import 'package:ecommerce_app/models/shop_getxcontroller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:video_player/video_player.dart';

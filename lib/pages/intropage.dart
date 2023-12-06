@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/pages/signin.dart';
 import 'package:lottie/lottie.dart';
 
 import '../components/mybutton.dart';
@@ -34,16 +35,32 @@ class _IntropageState extends State<Intropage> {
           style: TextStyle(color: Colors.grey.shade900, fontSize: 20),
         ),
         const SizedBox(height: 100),
-        Padding(
-          padding: const EdgeInsets.symmetric(vertical: 30),
-          child: Mycustombutton(
-              onTap: () {
-                Get.offAllNamed("/shoppage");
-              },
-              child: const Icon(
-                Icons.arrow_forward,
-                size: 50,
-              )),
+        Expanded(
+          child: Container(
+            width: MediaQuery.of(context).size.width,
+            decoration: BoxDecoration(
+              color: Colors.blueGrey[500],
+              borderRadius: const BorderRadius.only(
+                topLeft: Radius.circular(50),
+                topRight: Radius.circular(50),
+              ),
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Mycustombutton(
+                    color: Theme.of(context).colorScheme.primary,
+                    onTap: () {
+                      Get.to(const SignInPage());
+                    },
+                    child: const Text("Sign in")),
+                Mycustombutton(
+                    color: Theme.of(context).colorScheme.primary,
+                    onTap: () {},
+                    child: const Text("Sign up")),
+              ],
+            ),
+          ),
         )
       ]),
     );
