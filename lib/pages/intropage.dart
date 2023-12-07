@@ -16,9 +16,7 @@ class Intropage extends StatelessWidget {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          Lottie.asset(
-            "lib/assets/logo.json",
-          ),
+          Lottie.asset("lib/assets/logo.json", height: 400),
           Text(
             "Minimal Shop",
             style: GoogleFonts.dmSerifDisplay(
