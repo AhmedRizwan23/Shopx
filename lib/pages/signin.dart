@@ -31,7 +31,7 @@ class _SignInPageState extends State<SignInPage> {
       print('Login successful');
       print('response: ${response.body}');
 
-      // Get.toNamed("/shoppage");
+      Get.toNamed("/shoppage");
       Get.snackbar(
         "Login Successful",
         "Happy Shopping",
@@ -48,7 +48,7 @@ class _SignInPageState extends State<SignInPage> {
         borderColor: Colors.black,
         borderWidth: 2,
         backgroundColor:
-            Colors.green.shade700, // Customize the background color
+            Colors.blueGrey.shade700, // Customize the background color
       );
     } else {
       // Handle login failure
@@ -76,7 +76,13 @@ class _SignInPageState extends State<SignInPage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Lottie.asset("lib/assets/hello.json"),
+              Padding(
+                padding: const EdgeInsets.only(top: 80),
+                child: Lottie.asset("lib/assets/hello.json"),
+              ),
+              const SizedBox(
+                height: 100,
+              ),
               TextFormField(
                 controller: getsigncontroller.emailController,
                 decoration: InputDecoration(
