@@ -23,16 +23,16 @@ class Intropage extends StatelessWidget {
             style: TextStyle(fontWeight: FontWeight.bold, fontSize: 50),
           ),
           const SizedBox(height: 10),
-          Text(
+          const Text(
             "Premium Quality Products",
-            style: TextStyle(color: Colors.grey.shade900, fontSize: 20),
+            style: TextStyle(fontSize: 20),
           ),
           const SizedBox(height: 50),
           Expanded(
             child: Container(
               width: MediaQuery.of(context).size.width,
               decoration: BoxDecoration(
-                color: Colors.white,
+                color: Theme.of(context).colorScheme.onSecondary,
                 borderRadius: const BorderRadius.only(
                   topRight: Radius.circular(100),
                   topLeft: Radius.circular(100),
@@ -40,7 +40,8 @@ class Intropage extends StatelessWidget {
                 boxShadow: [
                   BoxShadow(
                     offset: const Offset(2, -3),
-                    color: Colors.blue.withOpacity(0.4),
+                    color:
+                        const Color.fromARGB(166, 200, 155, 6).withOpacity(0.4),
                     blurRadius: 50,
                     spreadRadius: 30,
                   ),
@@ -58,7 +59,7 @@ class Intropage extends StatelessWidget {
                       },
                       child: const Center(
                         child: Text(
-                          "Sign in",
+                          "Login",
                           style: TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.bold,
@@ -74,7 +75,7 @@ class Intropage extends StatelessWidget {
                       children: [
                         Text(
                           "or",
-                          style: TextStyle(fontSize: 20),
+                          style: TextStyle(fontSize: 20, color: Colors.white),
                         )
                       ],
                     ),
