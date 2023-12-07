@@ -5,4 +5,6 @@ class Signincontroller extends GetxController {
   var emailController = TextEditingController();
   var passwordController = TextEditingController();
   RxBool obscurepass = true.obs;
+
+  RxBool isloading = false.obs;
 }

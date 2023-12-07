@@ -1,8 +1,11 @@
+import 'dart:convert';
+
 import 'package:ecommerce_app/models/shop_getxcontroller.dart';
 import 'package:ecommerce_app/models/sign_getxconroller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
+import "package:http/http.dart" as http;
 
 class SignInPage extends StatefulWidget {
   const SignInPage({super.key});
@@ -13,6 +16,53 @@ class SignInPage extends StatefulWidget {
 
 class _SignInPageState extends State<SignInPage> {
   Signincontroller getsigncontroller = Get.put(Signincontroller());
+
+  Future loginuser(String email, String password) async {
+    getsigncontroller.isloading.value = true;
+    final response = await http.post(
+      Uri.parse("https://reqres.in/api/login"),
+      body: {
+        "email": email,
+        "password": password,
+      },
+    );
+    if (response.statusCode == 200) {
+      // Successful login, handle the response accordingly
+      print('Login successful');
+      print('response: ${response.body}');
+
+      // Get.toNamed("/shoppage");
+      Get.snackbar(
+        "Login Successful",
+        "Happy Shopping",
+        titleText: SizedBox(
+          height: 100,
+          child: Lottie.asset("lib/assets/user.json"),
+        ),
+        messageText: const Text(
+          "Login Succesfull",
+          style: TextStyle(fontWeight: FontWeight.bold),
+        ),
+        snackPosition: SnackPosition.BOTTOM,
+        snackStyle: SnackStyle.FLOATING,
+        borderColor: Colors.black,
+        borderWidth: 2,
+        backgroundColor:
+            Colors.green.shade700, // Customize the background color
+      );
+    } else {
+      // Handle login failure
+      print('Login failed');
+      print('Error code: ${response.statusCode}');
+      print('Error message: ${response.body}');
+      Get.snackbar("Login Failed", " ${jsonDecode(response.body)['error']}",
+          backgroundColor: Colors.red.shade700,
+          colorText: Colors.white,
+          snackPosition: SnackPosition.BOTTOM);
+    }
+    getsigncontroller.isloading.value = false;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,7 +76,7 @@ class _SignInPageState extends State<SignInPage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Lottie.asset("lib/assets/login.json"),
+              Lottie.asset("lib/assets/hello.json"),
               TextFormField(
                 controller: getsigncontroller.emailController,
                 decoration: InputDecoration(
@@ -47,6 +97,7 @@ class _SignInPageState extends State<SignInPage> {
               const SizedBox(height: 16),
               Obx(
                 () => TextFormField(
+                  controller: getsigncontroller.passwordController,
                   obscureText: getsigncontroller.obscurepass.value,
                   decoration: InputDecoration(
                     focusedBorder: OutlineInputBorder(
@@ -76,17 +127,27 @@ class _SignInPageState extends State<SignInPage> {
                 ),
               ),
               const SizedBox(height: 24),
-              ElevatedButton(
-                onPressed: () {
-                  Get.snackbar("Login Succesfull", "Happy Shopping!",
-                      snackPosition: SnackPosition.BOTTOM);
-                  Get.toNamed("/shoppage");
-                },
-                child: Text(
-                  'Sign In',
-                  style: TextStyle(
-                      color: Theme.of(context).colorScheme.inversePrimary),
-                ),
+              Obx(
+                () => getsigncontroller.isloading.value
+                    ? Lottie.asset("lib/assets/acess.json")
+                    : ElevatedButton(
+                        onPressed: () {
+                          var email = getsigncontroller.emailController.text
+                              .trim()
+                              .toString();
+                          var password = getsigncontroller
+                              .passwordController.text
+                              .trim()
+                              .toString();
+                          loginuser(email, password);
+                        },
+                        child: Text(
+                          'Sign In',
+                          style: TextStyle(
+                              color:
+                                  Theme.of(context).colorScheme.inversePrimary),
+                        ),
+                      ),
               ),
               TextButton(
                 onPressed: () {

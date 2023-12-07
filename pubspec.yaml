@@ -15,6 +15,7 @@ dependencies:
   liquid_pull_to_refresh: ^3.0.1
   lottie:
   intl: ^0.18.1
+  http: ^1.1.2
 
  
 
