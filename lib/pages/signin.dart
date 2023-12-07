@@ -4,6 +4,7 @@ import 'package:ecommerce_app/models/shop_getxcontroller.dart';
 import 'package:ecommerce_app/models/sign_getxconroller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
 import "package:http/http.dart" as http;
 
@@ -37,18 +38,29 @@ class _SignInPageState extends State<SignInPage> {
         "Happy Shopping",
         titleText: SizedBox(
           height: 100,
-          child: Lottie.asset("lib/assets/user.json"),
+          child: Row(
+            // mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              Lottie.asset("lib/assets/user.json"),
+              Expanded(
+                  child: Text(
+                "Welcome",
+                style: GoogleFonts.dmSerifDisplay(
+                    fontSize: 50, color: Colors.grey),
+              ))
+            ],
+          ),
         ),
         messageText: const Text(
           "Login Succesfull",
-          style: TextStyle(fontWeight: FontWeight.bold),
+          style: TextStyle(fontWeight: FontWeight.bold, color: Colors.grey),
         ),
         snackPosition: SnackPosition.BOTTOM,
         snackStyle: SnackStyle.FLOATING,
         borderColor: Colors.black,
         borderWidth: 2,
-        backgroundColor:
-            Colors.blueGrey.shade700, // Customize the background color
+        backgroundColor: const Color.fromARGB(
+            255, 255, 255, 255), // Customize the background color
       );
     } else {
       // Handle login failure
@@ -136,22 +148,27 @@ class _SignInPageState extends State<SignInPage> {
               Obx(
                 () => getsigncontroller.isloading.value
                     ? Lottie.asset("lib/assets/acess.json")
-                    : ElevatedButton(
-                        onPressed: () {
-                          var email = getsigncontroller.emailController.text
-                              .trim()
-                              .toString();
-                          var password = getsigncontroller
-                              .passwordController.text
-                              .trim()
-                              .toString();
-                          loginuser(email, password);
-                        },
-                        child: Text(
-                          'Sign In',
-                          style: TextStyle(
-                              color:
-                                  Theme.of(context).colorScheme.inversePrimary),
+                    : SizedBox(
+                        width: 250,
+                        height: 50,
+                        child: ElevatedButton(
+                          onPressed: () {
+                            var email = getsigncontroller.emailController.text
+                                .trim()
+                                .toString();
+                            var password = getsigncontroller
+                                .passwordController.text
+                                .trim()
+                                .toString();
+                            loginuser(email, password);
+                          },
+                          child: Text(
+                            'Sign In',
+                            style: TextStyle(
+                                color: Theme.of(context)
+                                    .colorScheme
+                                    .inversePrimary),
+                          ),
                         ),
                       ),
               ),
