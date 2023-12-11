@@ -1,6 +1,8 @@
 import 'package:ecommerce_app/models/products.dart';
 import 'package:ecommerce_app/models/shop_getxcontroller.dart';
+import 'package:ecommerce_app/pages/cart_page.dart';
 import 'package:ecommerce_app/pages/detailpage.dart';
+import 'package:ecommerce_app/pages/feautred_productpage.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -73,9 +75,12 @@ class Myproducttile extends StatelessWidget {
                 aspectRatio: 1,
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(20),
-                  child: Image.asset(
-                    product.imagepath,
-                    fit: BoxFit.cover,
+                  child: GestureDetector(
+                    onLongPress: () => showPopmenu(context),
+                    child: Image.asset(
+                      product.imagepath,
+                      fit: BoxFit.cover,
+                    ),
                   ),
                 ),
               ),
@@ -115,6 +120,24 @@ class Myproducttile extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  showPopmenu(BuildContext context) {
+    showMenu(
+        color: Colors.deepPurple[200],
+        context: context,
+        position: const RelativeRect.fromLTRB(100, 250, 100, 0),
+        items: [
+          const PopupMenuItem(
+            value: "Specs",
+            child: Text("Specs"),
+          ),
+          const PopupMenuItem(child: Text("Option 1"))
+        ]).then((value) {
+      if (value == "Specs") {
+        Get.to(const Feautredpage());
+      }
+    });
   }
 
   //void confirmOrder() {}
