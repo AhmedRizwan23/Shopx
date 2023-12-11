@@ -16,8 +16,9 @@ dependencies:
   lottie:
   intl: ^0.18.1
   http: ^1.1.2
-  google_fonts: 
-  popover: ^0.2.9
+  google_fonts:
+  popover: ^0.2.9 
+
 
  
 
