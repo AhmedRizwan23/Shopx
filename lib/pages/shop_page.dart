@@ -48,7 +48,11 @@ class ShopPage extends StatelessWidget {
                   itemBuilder: (BuildContext context, int index) {
                     Products prod = getshopcontroller.shop[index];
 
-                    return Myproducttile(product: prod);
+                    return GestureDetector(
+                        onTap: () {
+                          print("tapped");
+                        },
+                        child: Myproducttile(product: prod));
                   },
                 ),
               ),
