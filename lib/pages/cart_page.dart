@@ -35,7 +35,7 @@ class Cartpage extends StatelessWidget {
                   return ListTile(
                     title: Text(getcontroller.cart[index].name),
                     subtitle: Text(
-                      'Price: ${(getcontroller.cart[index].price)}',
+                      'Price: \$${(getcontroller.cart[index].price)}',
                     ),
                     trailing: IconButton(
                       onPressed: () {
@@ -66,7 +66,7 @@ class Cartpage extends StatelessWidget {
             // For example, navigate to a confirmation page
           },
           child: Text(
-            'Place Order - Total: ${formatTotal()}',
+            'Order - Total: \$${formatTotal()}',
             style: const TextStyle(color: Colors.black),
           ),
         ),

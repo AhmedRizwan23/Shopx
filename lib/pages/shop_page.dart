@@ -29,7 +29,7 @@ class ShopPage extends StatelessWidget {
                 onPressed: () {
                   Get.to(Cartpage());
                 },
-                icon: const Icon(Icons.shop)),
+                icon: const Icon(Icons.shopping_bag_outlined)),
           ]),
       drawer: const MyDrawer(),
       body: Column(
