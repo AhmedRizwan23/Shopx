@@ -58,7 +58,7 @@ class _MyDrawerState extends State<MyDrawer> {
                             topRight: Radius.circular(20)),
                         color: Theme.of(context).colorScheme.background),
                     height: MediaQuery.of(context).size.height * .2,
-                    width: MediaQuery.of(context).size.width * .8,
+                    width: MediaQuery.of(context).size.width * 1,
                     child: Padding(
                       padding: const EdgeInsets.all(50.0),
                       child: Row(

@@ -5,6 +5,7 @@ import 'package:ecommerce_app/models/shop_getxcontroller.dart';
 import 'package:ecommerce_app/pages/cart_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:liquid_pull_to_refresh/liquid_pull_to_refresh.dart';
 
 class ShopPage extends StatelessWidget {
@@ -33,12 +34,9 @@ class ShopPage extends StatelessWidget {
       drawer: const MyDrawer(),
       body: Column(
         children: [
-          const Row(
-            children: [Text("Black Friday sale live")],
-          ),
           Obx(
             () => SizedBox(
-              height: 700,
+              height: 620,
               child: LiquidPullToRefresh(
                 showChildOpacityTransition: false,
                 onRefresh: refresh,
@@ -58,16 +56,11 @@ class ShopPage extends StatelessWidget {
               ),
             ),
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                "minimal X shop",
-                style: TextStyle(
-                    fontSize: 20,
-                    color: Theme.of(context).colorScheme.inversePrimary),
-              )
-            ],
+          Text(
+            "minimal X shop",
+            style: GoogleFonts.dmSerifDisplay(
+                fontSize: 20,
+                color: Theme.of(context).colorScheme.inversePrimary),
           )
         ],
       ),

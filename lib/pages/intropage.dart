@@ -30,7 +30,7 @@ class Intropage extends StatelessWidget {
             "Premium Quality Products",
             style: TextStyle(fontSize: 20),
           ),
-          const SizedBox(height: 50),
+          SizedBox(height: MediaQuery.of(context).size.height * 0.01),
           Expanded(
             child: Container(
               width: MediaQuery.of(context).size.width,
@@ -86,7 +86,7 @@ class Intropage extends StatelessWidget {
                     padding: const EdgeInsets.only(top: 20),
                     child: Row(
                       children: [
-                        const SizedBox(width: 140),
+                        const SizedBox(width: 115),
                         Image.asset(
                           "lib/assets/facebook.png",
                           height: 60,

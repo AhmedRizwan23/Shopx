@@ -25,6 +25,7 @@ class Myapp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: lightmode,
       darkTheme: darkmode,
+      themeMode: ThemeMode.light,
       home: const Intropage(),
       getPages: [
         GetPage(name: '/', page: () => const Intropage()),
