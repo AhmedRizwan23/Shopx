@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "704940184292",
+    "project_id": "ecomerece-pushnotification",
+    "storage_bucket": "ecomerece-pushnotification.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:704940184292:android:bed53d6c205ac1570c92f1",
+        "android_client_info": {
+          "package_name": "com.example.ecommerce_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDPEpaBuFaPJn3p6xu44xLQfO8bs5eKdWk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
