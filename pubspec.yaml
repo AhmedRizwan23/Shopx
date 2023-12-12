@@ -16,9 +16,10 @@ dependencies:
   lottie:
   intl: ^0.18.1
   http: ^1.1.2
-  google_fonts:
+  google_fonts: ^6.1.0
   popover: ^0.2.9 
   firebase_core: ^2.24.2
+  firebase_messaging: ^14.7.8
 
 
  

@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/firebase_api/firbase.dart';
 import 'package:ecommerce_app/firebase_options.dart';
 import 'package:ecommerce_app/pages/feautred_productpage.dart';
 import 'package:ecommerce_app/pages/intropage.dart';
@@ -7,11 +8,10 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-Future<void> main() async {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  await Firebaseapi().initNotification();
 
   runApp(const Myapp());
 }
