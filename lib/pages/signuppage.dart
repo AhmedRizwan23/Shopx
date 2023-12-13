@@ -1,26 +1,23 @@
 import 'dart:convert';
 
-import 'package:ecommerce_app/models/shop_getxcontroller.dart';
+import 'package:ecommerce_app/firebase_api/firebasesignup_service.dart';
+
 import 'package:ecommerce_app/models/sign_getxconroller.dart';
-<<<<<<< Updated upstream
-=======
-import 'package:ecommerce_app/pages/signuppage.dart';
 import 'package:firebase_auth/firebase_auth.dart';
->>>>>>> Stashed changes
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
 import "package:http/http.dart" as http;
 
-class SignInPage extends StatefulWidget {
-  const SignInPage({super.key});
+class Signuppage extends StatefulWidget {
+  const Signuppage({super.key});
 
   @override
-  _SignInPageState createState() => _SignInPageState();
+  _SignuppageState createState() => _SignuppageState();
 }
 
-class _SignInPageState extends State<SignInPage> {
+class _SignuppageState extends State<Signuppage> {
   Signincontroller getsigncontroller = Get.put(Signincontroller());
 
   Future loginuser(String email, String password) async {
@@ -85,7 +82,7 @@ class _SignInPageState extends State<SignInPage> {
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.background,
       appBar: AppBar(
-        title: const Text('Sign In'),
+        title: const Text('Sign up'),
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -157,7 +154,7 @@ class _SignInPageState extends State<SignInPage> {
                         width: 250,
                         height: 50,
                         child: ElevatedButton(
-                          onPressed: () {
+                          onPressed: () async {
                             var email = getsigncontroller.emailController.text
                                 .trim()
                                 .toString();
@@ -165,25 +162,13 @@ class _SignInPageState extends State<SignInPage> {
                                 .passwordController.text
                                 .trim()
                                 .toString();
-<<<<<<< Updated upstream
-                            loginuser(email, password);
-=======
-                            try {
-                              final User? firebaseuser = (await FirebaseAuth
-                                      .instance
-                                      .signInWithEmailAndPassword(
-                                          email: email, password: password))
-                                  .user;
-                              if (firebaseuser != null) {
-                                Get.toNamed("/shoppage");
-                                Get.snackbar(
-                                    "Login Succesfull", "Happy Shopping!");
-                              }
-                            } on FirebaseAuthException catch (e) {
-                              Get.snackbar(
-                                  "Wrong email or password", e.toString());
-                            }
->>>>>>> Stashed changes
+                            await FirebaseAuth.instance
+                                .createUserWithEmailAndPassword(
+                                    email: email, password: password)
+                                .then((value) => {
+                                      print("user created"),
+                                      signupuser(email, password)
+                                    });
                           },
                           child: Text(
                             'Sign In',
@@ -197,10 +182,12 @@ class _SignInPageState extends State<SignInPage> {
               ),
               TextButton(
                 onPressed: () {
-                  Get.to(const Signuppage());
+                  Get.snackbar("Login Succesfull", "Happy Shopping!",
+                      snackPosition: SnackPosition.BOTTOM);
+                  Get.toNamed("/shoppage");
                 },
                 child: Text(
-                  'new user? Sign up',
+                  'Forgot Password?',
                   style: TextStyle(
                       color: Theme.of(context).colorScheme.inversePrimary),
                 ),
