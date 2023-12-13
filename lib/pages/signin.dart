@@ -195,7 +195,7 @@ class _SignInPageState extends State<SignInPage> {
                   Get.toNamed("/shoppage");
                 },
                 child: Text(
-                  'Forgot Password?',
+                  'Forgot Password',
                   style: TextStyle(
                       color: Theme.of(context).colorScheme.inversePrimary),
                 ),
@@ -207,3 +207,4 @@ class _SignInPageState extends State<SignInPage> {
     );
   }
 }
+///ahmed
