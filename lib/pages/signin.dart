@@ -5,15 +5,7 @@ import 'package:ecommerce_app/firebase_api/firebasesignup_service.dart';
 import 'package:ecommerce_app/models/shop_getxcontroller.dart';
 
 import 'package:ecommerce_app/models/sign_getxconroller.dart';
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-=======
-import 'package:ecommerce_app/pages/signuppage.dart';
 import 'package:firebase_auth/firebase_auth.dart';
->>>>>>> Stashed changes
-=======
-import 'package:firebase_auth/firebase_auth.dart';
->>>>>>> a441b6b264fb52b4f92d871b465e45c93df3092a
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -172,12 +164,6 @@ class _SignInPageState extends State<SignInPage> {
                                 .passwordController.text
                                 .trim()
                                 .toString();
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-                            loginuser(email, password);
-=======
-=======
->>>>>>> a441b6b264fb52b4f92d871b465e45c93df3092a
                             try {
                               final User? firebaseuser = (await FirebaseAuth
                                       .instance
@@ -186,20 +172,11 @@ class _SignInPageState extends State<SignInPage> {
                                   .user;
                               if (firebaseuser != null) {
                                 Get.toNamed("/shoppage");
-<<<<<<< HEAD
-                                Get.snackbar(
-                                    "Login Succesfull", "Happy Shopping!");
-=======
->>>>>>> a441b6b264fb52b4f92d871b465e45c93df3092a
                               }
                             } on FirebaseAuthException catch (e) {
                               Get.snackbar(
                                   "Wrong email or password", e.toString());
                             }
-<<<<<<< HEAD
->>>>>>> Stashed changes
-=======
->>>>>>> a441b6b264fb52b4f92d871b465e45c93df3092a
                           },
                           child: Text(
                             'Sign In',
@@ -213,10 +190,12 @@ class _SignInPageState extends State<SignInPage> {
               ),
               TextButton(
                 onPressed: () {
-                  Get.to(const Signuppage());
+                  Get.snackbar("Login Succesfull", "Happy Shopping!",
+                      snackPosition: SnackPosition.BOTTOM);
+                  Get.toNamed("/shoppage");
                 },
                 child: Text(
-                  'new user? Sign up',
+                  'Forgot Password?',
                   style: TextStyle(
                       color: Theme.of(context).colorScheme.inversePrimary),
                 ),

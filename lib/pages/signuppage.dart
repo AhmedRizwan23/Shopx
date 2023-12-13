@@ -10,16 +10,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
 import "package:http/http.dart" as http;
 
-<<<<<<< HEAD
-class Signuppage extends StatefulWidget {
-  const Signuppage({super.key});
-
-  @override
-  _SignuppageState createState() => _SignuppageState();
-}
-
-class _SignuppageState extends State<Signuppage> {
-=======
 class SignInPage extends StatefulWidget {
   const SignInPage({super.key});
 
@@ -28,7 +18,6 @@ class SignInPage extends StatefulWidget {
 }
 
 class _SignInPageState extends State<SignInPage> {
->>>>>>> a441b6b264fb52b4f92d871b465e45c93df3092a
   Signincontroller getsigncontroller = Get.put(Signincontroller());
 
   Future loginuser(String email, String password) async {
@@ -93,11 +82,7 @@ class _SignInPageState extends State<SignInPage> {
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.background,
       appBar: AppBar(
-<<<<<<< HEAD
-        title: const Text('Sign up'),
-=======
         title: const Text('Sign In'),
->>>>>>> a441b6b264fb52b4f92d871b465e45c93df3092a
       ),
       body: SingleChildScrollView(
         child: Padding(
