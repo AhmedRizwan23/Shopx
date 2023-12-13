@@ -1,8 +1,6 @@
 import 'dart:convert';
-import 'dart:math';
 
 import 'package:ecommerce_app/firebase_api/firebasesignup_service.dart';
-import 'package:ecommerce_app/models/shop_getxcontroller.dart';
 
 import 'package:ecommerce_app/models/sign_getxconroller.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -164,19 +162,13 @@ class _SignInPageState extends State<SignInPage> {
                                 .passwordController.text
                                 .trim()
                                 .toString();
-                            try {
-                              final User? firebaseuser = (await FirebaseAuth
-                                      .instance
-                                      .signInWithEmailAndPassword(
-                                          email: email, password: password))
-                                  .user;
-                              if (firebaseuser != null) {
-                                Get.toNamed("/shoppage");
-                              }
-                            } on FirebaseAuthException catch (e) {
-                              Get.snackbar(
-                                  "Wrong email or password", e.toString());
-                            }
+                            await FirebaseAuth.instance
+                                .createUserWithEmailAndPassword(
+                                    email: email, password: password)
+                                .then((value) => {
+                                      print("user created"),
+                                      signupuser(email, password)
+                                    });
                           },
                           child: Text(
                             'Sign In',
