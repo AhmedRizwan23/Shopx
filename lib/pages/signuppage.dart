@@ -10,14 +10,14 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
 import "package:http/http.dart" as http;
 
-class SignInPage extends StatefulWidget {
-  const SignInPage({super.key});
+class Signuppage extends StatefulWidget {
+  const Signuppage({super.key});
 
   @override
-  _SignInPageState createState() => _SignInPageState();
+  _SignuppageState createState() => _SignuppageState();
 }
 
-class _SignInPageState extends State<SignInPage> {
+class _SignuppageState extends State<Signuppage> {
   Signincontroller getsigncontroller = Get.put(Signincontroller());
 
   Future loginuser(String email, String password) async {
@@ -82,7 +82,7 @@ class _SignInPageState extends State<SignInPage> {
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.background,
       appBar: AppBar(
-        title: const Text('Sign In'),
+        title: const Text('Sign up'),
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -91,11 +91,11 @@ class _SignInPageState extends State<SignInPage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Padding(
-                padding: const EdgeInsets.only(top: 80),
-                child: Lottie.asset("lib/assets/hello.json"),
+                padding: const EdgeInsets.only(top: 20),
+                child: Lottie.asset("lib/assets/user.json"),
               ),
               const SizedBox(
-                height: 100,
+                height: 20,
               ),
               TextFormField(
                 controller: getsigncontroller.emailController,
@@ -162,16 +162,21 @@ class _SignInPageState extends State<SignInPage> {
                                 .passwordController.text
                                 .trim()
                                 .toString();
-                            await FirebaseAuth.instance
-                                .createUserWithEmailAndPassword(
-                                    email: email, password: password)
-                                .then((value) => {
-                                      print("user created"),
-                                      signupuser(email, password)
-                                    });
+                            try {
+                              final UserCredential newuser = await FirebaseAuth
+                                  .instance
+                                  .createUserWithEmailAndPassword(
+                                      email: email, password: password);
+
+                              signupuser(email, password);
+                              Get.snackbar("User created",
+                                  "User ID: ${newuser.user?.email}");
+                            } on FirebaseAuthException catch (e) {
+                              Get.snackbar("Signup Failed", "${e.message}");
+                            }
                           },
                           child: Text(
-                            'Sign In',
+                            'Signup',
                             style: TextStyle(
                                 color: Theme.of(context)
                                     .colorScheme
@@ -179,18 +184,6 @@ class _SignInPageState extends State<SignInPage> {
                           ),
                         ),
                       ),
-              ),
-              TextButton(
-                onPressed: () {
-                  Get.snackbar("Login Succesfull", "Happy Shopping!",
-                      snackPosition: SnackPosition.BOTTOM);
-                  Get.toNamed("/shoppage");
-                },
-                child: Text(
-                  'Forgot Password?',
-                  style: TextStyle(
-                      color: Theme.of(context).colorScheme.inversePrimary),
-                ),
               ),
             ],
           ),

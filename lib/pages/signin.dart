@@ -5,6 +5,7 @@ import 'package:ecommerce_app/firebase_api/firebasesignup_service.dart';
 import 'package:ecommerce_app/models/shop_getxcontroller.dart';
 
 import 'package:ecommerce_app/models/sign_getxconroller.dart';
+import 'package:ecommerce_app/pages/signuppage.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -172,10 +173,13 @@ class _SignInPageState extends State<SignInPage> {
                                   .user;
                               if (firebaseuser != null) {
                                 Get.toNamed("/shoppage");
+                                Get.snackbar(
+                                    "Loggged in", "${firebaseuser.email}");
+                                print(firebaseuser.email);
                               }
                             } on FirebaseAuthException catch (e) {
-                              Get.snackbar(
-                                  "Wrong email or password", e.toString());
+                              Get.snackbar("Wrong email or password",
+                                  e.message.toString());
                             }
                           },
                           child: Text(
@@ -200,6 +204,16 @@ class _SignInPageState extends State<SignInPage> {
                       color: Theme.of(context).colorScheme.inversePrimary),
                 ),
               ),
+              TextButton(
+                  onPressed: () {
+                    Get.to(const Signuppage());
+                  },
+                  child: Text(
+                    "New user? Signup",
+                    style: TextStyle(
+                        fontSize: 30,
+                        color: Theme.of(context).colorScheme.inversePrimary),
+                  ))
             ],
           ),
         ),
