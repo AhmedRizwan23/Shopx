@@ -1,6 +1,7 @@
 import 'package:ecommerce_app/components/my_listtile.dart';
 import 'package:ecommerce_app/pages/cart_page.dart';
 import 'package:ecommerce_app/pages/intropage.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -114,6 +115,7 @@ class _MyDrawerState extends State<MyDrawer> {
                 text: "Exit",
                 onTap: () {
                   Get.to(const Intropage());
+                  FirebaseAuth.instance.signOut();
                 }),
           ),
         ],

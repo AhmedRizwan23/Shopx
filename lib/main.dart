@@ -4,6 +4,7 @@ import 'package:ecommerce_app/pages/feautred_productpage.dart';
 import 'package:ecommerce_app/pages/intropage.dart';
 import 'package:ecommerce_app/pages/shop_page.dart';
 import 'package:ecommerce_app/themes/theme.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -16,8 +17,22 @@ void main() async {
   runApp(const Myapp());
 }
 
-class Myapp extends StatelessWidget {
+class Myapp extends StatefulWidget {
   const Myapp({super.key});
+
+  @override
+  State<Myapp> createState() => _MyappState();
+}
+
+class _MyappState extends State<Myapp> {
+  User? user;
+
+  @override
+  void initState() {
+    super.initState();
+    user = FirebaseAuth.instance.currentUser;
+    print("Logged in user ${user?.email}");
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +41,7 @@ class Myapp extends StatelessWidget {
       theme: lightmode,
       darkTheme: darkmode,
       themeMode: ThemeMode.light,
-      home: const Intropage(),
+      home: user != null ? const ShopPage() : const Intropage(),
       getPages: [
         GetPage(name: '/', page: () => const Intropage()),
         GetPage(name: '/shoppage', page: () => const ShopPage()),
