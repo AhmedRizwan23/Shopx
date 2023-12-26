@@ -8,15 +8,17 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:liquid_pull_to_refresh/liquid_pull_to_refresh.dart';
 
+Shop getshopcontroller = Get.put(Shop());
+
 class ShopPage extends StatelessWidget {
   const ShopPage({super.key});
   Future refresh() async {
     print("refresh");
+    getshopcontroller.shop.shuffle();
   }
 
   @override
   Widget build(BuildContext context) {
-    Shop getshopcontroller = Get.put(Shop());
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.background,
       appBar: AppBar(
