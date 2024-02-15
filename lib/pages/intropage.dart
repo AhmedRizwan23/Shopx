@@ -31,8 +31,9 @@ class Intropage extends StatelessWidget {
               "Premium Quality Products",
               style: TextStyle(fontSize: 20),
             ),
-            const SizedBox(height: 150),
+            const SizedBox(height: 200),
             Expanded(
+              flex: 1,
               child: Column(
                 children: [
                   Center(
@@ -51,7 +52,7 @@ class Intropage extends StatelessWidget {
                           child: const Text(
                             "Login",
                             style: TextStyle(
-                              fontSize: 20,
+                              fontSize: 25,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
@@ -99,10 +100,10 @@ class Intropage extends StatelessWidget {
               ),
             ),
             Expanded(
-              child: SizedBox(
+              child: Container(
                 //  margin: const EdgeInsets.only(bottom: 30),
                 // height: 330,
-                //color: Colors.amber,
+                // color: Colors.amber,
                 child: Lottie.asset(
                   "lib/assets/logo.json",
                 ),
