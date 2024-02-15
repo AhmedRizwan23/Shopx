@@ -43,7 +43,7 @@ class Intropage extends StatelessWidget {
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(16),
                           border: Border.all(width: 1, color: Colors.black),
-                          color: const Color.fromARGB(255, 184, 71, 205)),
+                          color: Colors.blueGrey),
                       child: Center(
                         child: TextButton(
                           onPressed: () {
