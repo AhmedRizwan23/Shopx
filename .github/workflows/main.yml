@@ -26,19 +26,10 @@ jobs:
         with:
           channel: 'stable'
           architecture: x64
-
       - run: flutter build apk --release
-      - run: |
-          flutter build ios
-          cd build/ios
-          mkdir Payload
-          cd Payload
-          ln -s ../Runner.app
-          cd ..
-          zip -r app.ipa Payload
       - name: Push to Releases
         uses: ncipollo/release-action@v1
         with:
-          artifacts: "build/app/outputs/apk/release/*,build/ios/app.ipa"  # Adjusted the path for iOS IPA file
+          artifacts: "build/app/outputs/apk/release/*"  # Adjusted the path for Android APK file
           tag: v1.0.${{ github.run_number }}
           token: ${{ secrets.TOKEN }}
